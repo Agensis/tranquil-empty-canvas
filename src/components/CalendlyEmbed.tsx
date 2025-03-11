@@ -15,30 +15,43 @@ const CalendlyEmbed: React.FC<CalendlyEmbedProps> = ({
   const calendlyContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Check if Calendly is loaded
-    if (typeof window !== 'undefined' && window.Calendly) {
-      window.Calendly.initInlineWidget({
-        url: url,
-        parentElement: calendlyContainerRef.current!,
-        prefill: {},
-        utm: {}
-      });
-    } else {
-      // If not loaded, create a fallback
-      const container = calendlyContainerRef.current;
-      if (container) {
-        container.innerHTML = `
-          <div class="calendly-inline-widget" data-url="${url}" style="min-width:320px;height:${height}px;"></div>
-        `;
-      }
+    // Clear any existing content first to prevent duplicates
+    if (calendlyContainerRef.current) {
+      calendlyContainerRef.current.innerHTML = '';
     }
+
+    // Create script element for Calendly
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    // Create the Calendly inline widget
+    if (calendlyContainerRef.current) {
+      const div = document.createElement('div');
+      div.className = 'calendly-inline-widget';
+      div.style.minWidth = '320px';
+      div.style.height = `${height}px`;
+      div.setAttribute('data-url', url);
+      calendlyContainerRef.current.appendChild(div);
+    }
+
+    return () => {
+      // Cleanup script on unmount
+      document.body.removeChild(script);
+    };
   }, [url, height]);
 
   return (
     <div 
       ref={calendlyContainerRef} 
       className={`calendly-container ${className}`}
-      style={{ minHeight: `${height}px`, width: '100%' }}
+      style={{ 
+        minHeight: `${height}px`, 
+        width: '100%',
+        margin: '0 auto',
+        maxWidth: '1000px'
+      }}
     />
   );
 };
