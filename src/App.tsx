@@ -2,7 +2,7 @@ import React from 'react';
 import { MessageSquare, Calendar, Clock, Bot, Shield, Cloud, ChevronDown, Facebook, Instagram, Menu, X, PhoneIncoming, PhoneOutgoing, Users, CalendarCheck, RefreshCcw, Gift, CheckCheck, MessageCircle, Send, ShoppingBag, MessagesSquare, Phone, Mail, User } from 'lucide-react';
 import CalendlyEmbed from './components/CalendlyEmbed';
 
-function useIntersectionObserver(options = {}) {
+function useVisibilityObserver(options = {}) {
   const [isVisible, setIsVisible] = React.useState(false);
   const elementRef = React.useRef(null);
 
@@ -27,8 +27,6 @@ function useIntersectionObserver(options = {}) {
 }
 
 const animatedWords = ['atiende', 'responde', 'agenda', 'vende'];
-
-const COPILOT_BADGE = '+ NUESTRO COPILOTO IA';
 
 const navItems = [
   { label: 'Inicio', href: '#hero' },
@@ -165,39 +163,6 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
-const features = [
-  {
-    title: 'Respuestas Instantáneas 24/7',
-    description: 'Automatiza todo, desde la calificación de leads hasta la programación de reuniones con nuestro producto.',
-    icon: Clock,
-  },
-  {
-    title: 'Fácil de Personalizar',
-    description: 'Nos adaptamos a tus necesidades únicas, integrándose perfectamente con tu flujo de trabajo.',
-    icon: MessageSquare,
-  },
-  {
-    title: 'Escala con Datos',
-    description: 'Obtén información valiosa sobre tus tasas de conversión a través de más de 30 métricas.',
-    icon: Bot,
-  },
-  {
-    title: 'Implementación Rápida',
-    description: 'Nuestras implementaciones no requieren experiencia técnica ni procesos de configuración extensos.',
-    icon: Calendar,
-  },
-  {
-    title: 'Acceso basado en la Nube',
-    description: 'La nube ofrece configuración sencilla, alta disponibilidad y costos de mantenimiento reducidos.',
-    icon: Cloud,
-  },
-  {
-    title: 'Seguridad Empresarial',
-    description: 'Los datos sensibles de los clientes se manejan con medidas de protección de nivel empresarial.',
-    icon: Shield,
-  },
-];
-
 const faqs = [
   {
     question: '¿Qué hace Agensis?',
@@ -261,7 +226,7 @@ function WhatsAppButton({ className = '' }: { className?: string }) {
 function App() {
   const [isMainCTAVisible, setIsMainCTAVisible] = React.useState(true);
   const mainCTARef = React.useRef<HTMLDivElement>(null);
-  const formRef = React.useRef<HTMLDivElement>(null);
+  const formRef = React.useRef<HTMLFormElement>(null);
   const [isFormVisible, setIsFormVisible] = React.useState(false);
 
   React.useEffect(() => {
@@ -810,4 +775,3 @@ function ChatConversation() {
 }
 
 export default App;
-
