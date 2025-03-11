@@ -38,7 +38,7 @@ const CalendlyEmbed: React.FC<CalendlyEmbedProps> = ({
     <div 
       ref={calendlyContainerRef} 
       className={`calendly-container ${className}`}
-      style={{ minHeight: `${height}px` }}
+      style={{ minHeight: `${height}px`, width: '100%' }}
     />
   );
 };

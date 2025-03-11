@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageSquare, Calendar, Clock, Bot, Shield, Cloud, ChevronDown, Facebook, Instagram, Menu, X, PhoneIncoming, PhoneOutgoing, Users, CalendarCheck, RefreshCcw, Gift, Check, CheckCheck, MessageCircle, Send, ShoppingBag, MessagesSquare, Phone, Mail, User } from 'lucide-react';
+import { MessageSquare, Calendar, Clock, Bot, Shield, Cloud, ChevronDown, Facebook, Instagram, Menu, X, PhoneIncoming, PhoneOutgoing, Users, CalendarCheck, RefreshCcw, Gift, CheckCheck, MessageCircle, Send, ShoppingBag, MessagesSquare, Phone, Mail, User } from 'lucide-react';
 import CalendlyEmbed from './components/CalendlyEmbed';
 
 function useIntersectionObserver(options = {}) {
@@ -61,7 +61,6 @@ function Navbar() {
             </a>
           </div>
           
-          {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-6 flex items-center space-x-4">
               {navItems.map((item) => (
@@ -76,7 +75,6 @@ function Navbar() {
             </div>
           </div>
 
-          {/* Mobile menu button */}
           <div className="flex md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)} 
@@ -91,7 +89,6 @@ function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isOpen && (
           <div className="absolute top-full left-0 right-0 mt-2 rounded-2xl bg-white/70 backdrop-blur-md shadow-lg md:hidden">
             <div className="space-y-1 pb-3 pt-2">
@@ -251,7 +248,7 @@ function FAQ({ question, answer }: { question: string; answer: string }) {
 function WhatsAppButton({ className = '' }: { className?: string }) {
   return (
     <a
-      href="https://calendly.com/michaelsegovia/1-a-1-con-michael"
+      href="#contact"
       className={`inline-flex items-center gap-2 rounded-full bg-black px-6 py-3 text-white transition-all duration-300 hover:scale-105 relative overflow-hidden group ${className}`}
     >
       <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
@@ -303,11 +300,10 @@ function App() {
     <div className="min-h-screen bg-white">
       <Navbar />
 
-      {/* Hero Section */}
       <section id="hero" className="relative min-h-screen w-full overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-white md:hidden z-10" />
-          <spline-viewer url="https://prod.spline.design/pRbtCcx56nvu1AS0/scene.splinecode" />
+          <spline-viewer url="https://prod.spline.design/pRbtCcx56nvu1AS0/scene.splinecode"></spline-viewer>
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-gray-50/20 to-white/20 backdrop-blur-[5px] z-10" />
         <div className="relative z-20 mx-auto max-w-7xl text-center min-h-screen flex flex-col items-center justify-center -mt-16 md:mt-12 px-4 sm:px-6 lg:px-8">
@@ -327,7 +323,6 @@ function App() {
         </div>
       </section>
 
-      {/* Animated Text Section */}
       <section className="relative z-20 bg-white py-16 mt-[-1px]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -346,7 +341,7 @@ function App() {
           </div>
           <div className="flex flex-col items-center gap-12">
             <div className="relative w-full max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div className="relative bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] order-2 lg:order-1 transform transition-all duration-300 hover:shadow-[0_20px_70px_-15px_rgba(0,0,0,0.4)] hover:scale-[1.01] z-10">
+              <div className="relative bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.18)] z-10">
                 <h3 className="text-2xl font-medium text-gray-900 mb-6 animate-slide-in">
                   Recibe una llamada de nuestros Agentes IA
                 </h3>
@@ -453,7 +448,6 @@ function App() {
         </div>
       </section>
 
-      {/* Pastel Gradient Section */}
       <section className="relative z-20 py-24 overflow-hidden">
         <div className="absolute inset-0 bg-black" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,#434343,#000000)]" />
@@ -500,7 +494,6 @@ function App() {
         </div>
       </section>
 
-      {/* Automation Section */}
       <section className="relative z-20 py-16 mt-[-1px]">
         <div className="absolute inset-0 bg-gradient-to-b from-gray-100 to-white" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -599,9 +592,6 @@ function App() {
         </div>
       </section>
 
-      {/* Features Section */}
-
-      {/* FAQ Section */}
       <section id="faq" className="bg-gray-50 px-4 py-24 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center text-3xl font-semibold text-gray-900 sm:text-4xl">
@@ -615,7 +605,6 @@ function App() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section id="contact" className="bg-black px-4 py-24 text-white sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-semibold sm:text-4xl mb-8">
@@ -624,7 +613,7 @@ function App() {
           <p className="text-lg text-gray-300 mb-12">
             Únete a las empresas que ya están transformando su atención al cliente
           </p>
-          <div className="rounded-2xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10">
+          <div className="rounded-2xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 w-full">
             <CalendlyEmbed 
               url="https://calendly.com/michaelsegovia/1-a-1-con-michael" 
               height={700}
@@ -634,7 +623,6 @@ function App() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="bg-gray-900 px-4 py-12 text-gray-300 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -682,7 +670,6 @@ function App() {
         </div>
       </footer>
 
-      {/* Sticky WhatsApp Button */}
       <div className={`fixed bottom-8 left-1/2 -translate-x-1/2 transform transition-all duration-300 ${
         isMainCTAVisible ? 'opacity-0 pointer-events-none' : 'opacity-100'
       } z-50 bg-white/5 backdrop-blur-sm rounded-full p-1`}>
@@ -822,4 +809,5 @@ function ChatConversation() {
   );
 }
 
-export default App
+export default App;
+
