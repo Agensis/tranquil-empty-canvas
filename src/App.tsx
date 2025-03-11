@@ -1,5 +1,6 @@
 import React from 'react';
 import { MessageSquare, Calendar, Clock, Bot, Shield, Cloud, ChevronDown, Facebook, Instagram, Menu, X, PhoneIncoming, PhoneOutgoing, Users, CalendarCheck, RefreshCcw, Gift, Check, CheckCheck, MessageCircle, Send, ShoppingBag, MessagesSquare, Phone, Mail, User } from 'lucide-react';
+import CalendlyEmbed from './components/CalendlyEmbed';
 
 function useIntersectionObserver(options = {}) {
   const [isVisible, setIsVisible] = React.useState(false);
@@ -624,10 +625,10 @@ function App() {
             Únete a las empresas que ya están transformando su atención al cliente
           </p>
           <div className="rounded-2xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10">
-            <div 
-              className="calendly-inline-widget" 
-              data-url="https://calendly.com/michaelsegovia/1-a-1-con-michael" 
-              style={{ minWidth: '320px', height: '700px' }}
+            <CalendlyEmbed 
+              url="https://calendly.com/michaelsegovia/1-a-1-con-michael" 
+              height={700}
+              className="w-full"
             />
           </div>
         </div>
