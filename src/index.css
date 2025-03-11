@@ -1,64 +1,106 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 210 33% 99%;
-    --foreground: 222 47% 11%;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700&display=swap');
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+.animate-blink {
+  animation: blink 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  border-radius: 1px;
+}
 
-    --primary: 211 100% 50%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222 47% 11%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215 16% 47%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222 47% 11%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 221 83% 53%;
-
-    --radius: 10px;
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
 
-  html, body {
-    @apply antialiased font-sans text-foreground bg-background;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-  ::selection {
-    @apply bg-primary/20;
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
-@layer utilities {
-  .glass-effect {
-    @apply bg-white/80 backdrop-blur-md border border-white/20;
+.animate-slide-in {
+  opacity: 0;
+  animation: slideInFromLeft 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animation-delay-300 {
+  animation-delay: 500ms;
+}
+
+.noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+}
+
+@layer base {
+  html {
+    font-family: 'Noto Sans', system-ui, sans-serif;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
   
-  .text-balance {
-    text-wrap: balance;
+  h1.hero-title {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 100px;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    padding: 0 1rem;
+    font-weight: 700;
+  }
+  
+  @media (max-width: 1280px) {
+    h1.hero-title {
+      font-size: 80px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    h1.hero-title {
+      font-size: 50px;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    h1.hero-title {
+      font-size: 40px;
+    }
+
+    /* Optimize Spline viewer for mobile */
+    spline-viewer {
+      transform: scale(1.2);
+      transform-origin: center center;
+    }
   }
 }
